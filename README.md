@@ -41,6 +41,14 @@ pip install fastapi uvicorn[standard]
 
 Seleccionar el intérprete en VSCode: `Ctrl+Shift+P` → `Python: Select Interpreter` → elegir `.venv`.
 
+### Actualizar requirements.txt
+
+Para regenerar `requirements.txt` a partir de las dependencias instaladas en el entorno virtual:
+
+```bash
+pip freeze > requirements.txt
+```
+
 ---
 
 ## Ejecución
