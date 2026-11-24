@@ -16,15 +16,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
 import models
-from database import Base, engine, get_db
+from database import engine, get_db
 from config import settings
 from routers import users, posts
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
-    # Create the database tables
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
     yield
     # Optionally, you can add code here to clean up resources when the app shuts down
     await engine.dispose()
